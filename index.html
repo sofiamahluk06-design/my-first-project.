@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Моя презентація</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: linear-gradient(135deg, #d8b4fe, #fbcfe8);
+    text-align: center;
+    margin: 0;
+    padding: 30px;
+}
+
+.slide {
+    display: none;
+    background: white;
+    border-radius: 25px;
+    padding: 50px 20px;
+    max-width: 650px;
+    min-height: 250px;
+    margin: 60px auto 20px;
+    box-shadow: 0 5px 20px #999;
+}
+
+.slide.active {
+    display: block;
+}
+
+h1 { color: #9333ea; }
+
+button {
+    background: #9333ea;
+    color: white;
+    border: none;
+    padding: 13px 25px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 16px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide active">
+<h1>👋 Привіт!</h1>
+<h2>Моя презентація</h2>
+<p>Я вивчаю інженерію програмного забезпечення.</p>
+</div>
+
+<div class="slide">
+<h1>🎓 Про мене</h1>
+<p>Мене цікавлять інформаційні технології та програмування.</p>
+<p>Я навчаюся створювати власні проєкти.</p>
+</div>
+
+<div class="slide">
+<h1>💻 Мої навички</h1>
+<p>Ознайомлююся з GitHub.</p>
+<p>Вивчаю основи програмування.</p>
+</div>
+
+<div class="slide">
+<h1>🚀 Мої цілі</h1>
+<p>Навчитися створювати сайти та програми.</p>
+<p>Розвиватися у сфері IT.</p>
+</div>
+
+<div class="slide">
+<h1>💗 Дякую за увагу!</h1>
+<p>Це моя перша презентація на GitHub.</p>
+</div>
+
+<button onclick="changeSlide(-1)">⬅ Назад</button>
+<button onclick="changeSlide(1)">Далі ➡</button>
+
+<p id="number">1 / 5</p>
+
+<script>
+let current = 0;
+let slides = document.querySelectorAll(".slide");
+
+function changeSlide(direction) {
+    slides[current].classList.remove("active");
+    current += direction;
+
+    if (current < 0) current = slides.length - 1;
+    if (current >= slides.length) current = 0;
+
+    slides[current].classList.add("active");
+    document.getElementById("number").textContent =
+        (current + 1) + " / " + slides.length;
+}
+</script>
+
+</body>
+</html>
